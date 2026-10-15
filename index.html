@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Secret Love 💖</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: white;
+  background: linear-gradient(135deg, #250027, #9b005d, #ff6b9d);
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  padding: 22px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#page1 {
+  display: flex;
+}
+
+h1 {
+  font-size: 29px;
+  text-shadow: 0 0 15px #ffadd7;
+}
+
+p {
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.heart {
+  font-size: 125px;
+  cursor: pointer;
+  animation: beat 1s infinite;
+  filter: drop-shadow(0 0 25px #ff3b83);
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.boxes {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.box {
+  width: 130px;
+  height: 145px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ff72b6, #a00076);
+  box-shadow: 0 0 20px #ffacd5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.box:active {
+  transform: scale(.92);
+}
+
+.box span {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+button {
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 14px 28px;
+  margin-top: 18px;
+  background: linear-gradient(135deg, #ff4c9a, #a80078);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff8bc5;
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+.card {
+  max-width: 390px;
+  width: 100%;
+  padding: 24px;
+  border-radius: 24px;
+  background: #fff0f7;
+  color: #8a145b;
+  box-shadow: 0 0 25px #ffb2d9;
+  font-size: 21px;
+  line-height: 1.8;
+}
+
+.small {
+  font-size: 15px;
+}
+
+.love-button {
+  font-size: 24px;
+  padding: 18px 30px;
+  animation: beat 1s infinite;
+}
+
+.falling {
+  position: fixed;
+  top: -60px;
+  z-index: 10;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(115vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.final-love {
+  font-size: 37px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 20px #ffb5dd;
+  animation: beat 1s infinite;
+}
+
+#selectedMessage {
+  min-height: 28px;
+  font-weight: bold;
+  color: #ffe5f1;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="page" id="page1">
+  <div class="heart" onclick="goToBoxes()">❤️</div>
+  <h1>Touch This Heart 💖</h1>
+  <p>Ek secret surprise tumhare liye! 🤫💌</p>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+  <h1>Choose Your Secret Box 🎁</h1>
+  <p>Sirf ek box choose karna! 😜💗</p>
+
+  <div class="boxes">
+    <div class="box" onclick="chooseBox('truth')">
+      <span>🤫</span>
+      TRUTH
+    </div>
+
+    <div class="box" onclick="chooseBox('dare')">
+      <span>😈</span>
+      DARE
+    </div>
+  </div>
+
+  <p id="selectedMessage">Tumhara secret choice? 💕</p>
+  <button onclick="openChallenge()">Next ➜</button>
+</section>
+
+<!-- PAGE 3: TRUTH -->
+<section class="page" id="page3">
+  <h1>🤫 TRUTH TIME 💗</h1>
+
+  <div class="card">
+    Snapchat par message karke sach-sach bolna! 👻💌
+    <br><br>
+    Tumhari favourite 5 cheezein batao jo mujhe abhi tak nahi pata! 🥹💕
+  </div>
+
+  <button onclick="goToLove()">Next ➜</button>
+</section>
+
+<!-- PAGE 4: DARE -->
+<section class="page" id="page4">
+  <h1>😈 DARE TIME 💋</h1>
+
+  <div class="card">
+    Mera dare hai... 💗
+    <br><br>
+    Agar tum comfortable ho, toh mujhe ek cute kiss do! 💋❤️
+    <br><br>
+    Nahi toh ek flying kiss bhej do! 😘
+  </div>
+
+  <button onclick="goToLove()">Next ➜</button>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page" id="page5">
+  <div style="font-size:75px">💗🎈💗</div>
+
+  <h1>Kitna Pyaar Doon Tumhe? 🥹</h1>
+
+  <p>
+    Jitna tum soch bhi nahi sakti! 💕<br>
+    Ready ho apna pyaar lene ke liye?
+  </p>
+
+  <button class="love-button" onclick="startLove()">
+    Pyaar Lo ❤️
+  </button>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page" id="page6">
+  <div class="final-love" id="loveText">
+    I LOVE YOU ❤️
+  </div>
+
+  <h1>You Are My Special Person 🥹💕</h1>
+
+  <p>
+    Lots of love, lots of hugs<br>
+    and endless happiness for you! 🌹
+  </p>
+
+  <button onclick="showFinal()">Last Surprise 💌</button>
+</section>
+
+<!-- PAGE 7 -->
+<section class="page" id="page7">
+  <div style="font-size:90px">💖🌹💖</div>
+
+  <h1>My Favourite Person ❤️</h1>
+
+  <div class="card">
+    I LOVE YOU ❤️
+    <br>
+    I LOVE YOU 💗
+    <br>
+    I LOVE YOU 💖
+    <br><br>
+    Tumhari smile hamesha bani rahe! 🥹🌸
+    <br>
+    You are truly special to me! 💕
+  </div>
+
+  <p class="small">Made with love 💌</p>
+</section>
+
+<script>
+let choice = "";
+
+function showPage(id) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.style.display = "none";
+  });
+
+  document.getElementById(id).style.display = "flex";
+}
+
+function goToBoxes() {
+  showPage("page2");
+}
+
+function chooseBox(type) {
+  choice = type;
+
+  if (type === "truth") {
+    document.getElementById("selectedMessage").textContent =
+      "Tumne TRUTH choose kiya! 🤫💗";
+  } else {
+    document.getElementById("selectedMessage").textContent =
+      "Tumne DARE choose kiya! 😈💕";
+  }
+}
+
+function openChallenge() {
+  if (choice === "") {
+    document.getElementById("selectedMessage").textContent =
+      "Pehle ek secret box choose karo! 🎁";
+    return;
+  }
+
+  if (choice === "truth") {
+    showPage("page3");
+  } else {
+    showPage("page4");
+  }
+}
+
+function goToLove() {
+  showPage("page5");
+}
+
+function startLove() {
+  showPage("page6");
+  loveRain();
+}
+
+function showFinal() {
+  showPage("page7");
+  loveRain();
+}
+
+function loveRain() {
+  const symbols = [
+    "❤️", "💖", "💕", "💗", "💘",
+    "🎈", "💝", "🌹", "✨", "💞"
+  ];
+
+  // A shower of hearts and balloons
+  for (let i = 0; i < 100; i++) {
+    setTimeout(() => {
+      const item = document.createElement("div");
+      item.className = "falling";
+
+      item.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+      item.style.left = Math.random() * 100 + "vw";
+      item.style.fontSize = (20 + Math.random() * 30) + "px";
+      item.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+      document.body.appendChild(item);
+
+      setTimeout(() => item.remove(), 7500);
+    }, i * 55);
+  }
+
+  // Repeated I LOVE YOU messages
+  let count = 0;
+
+  const loveInterval = setInterval(() => {
+    const text = document.getElementById("loveText");
+
+    if (text && document.getElementById("page6").style.display === "flex") {
+      const messages = [
+        "I LOVE YOU ❤️",
+        "LOVE YOU SO MUCH 💖",
+        "YOU ARE SPECIAL 💗",
+        "I LOVE YOU FOREVER 🌹"
+      ];
+
+      text.textContent = messages[count % messages.length];
+      count++;
+    } else {
+      clearInterval(loveInterval);
+    }
+  }, 1200);
+}
+</script>
+
+</body>
+  </html>
